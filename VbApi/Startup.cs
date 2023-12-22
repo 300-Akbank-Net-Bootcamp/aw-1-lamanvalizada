@@ -12,13 +12,15 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllers();
-        
+
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
         services.AddTransient<IValidator<Employee>, EmployeeValidator>();
         services.AddTransient<IValidator<Staff>, StaffValidator>();
+        services.AddTransient<EmployeeValidator>();
+
     }
-    
+
     
     public void Configure(IApplicationBuilder app,IWebHostEnvironment env)
     {
