@@ -15,7 +15,10 @@ public class Startup
         
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
+        services.AddTransient<IValidator<Employee>, EmployeeValidator>();
+        services.AddTransient<IValidator<Staff>, StaffValidator>();
     }
+    
     
     public void Configure(IApplicationBuilder app,IWebHostEnvironment env)
     {
